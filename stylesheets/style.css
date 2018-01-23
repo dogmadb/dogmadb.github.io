@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import url("https://fonts.googleapis.com/css?family=Gruppo");
+.brand {
+  color: #FF6315;
+}
+body {
+  font-family: "Gruppo";
+}
+a {
+  text-decoration: none;
+}
+h2,
+h3 {
+  color: #FF6315;
+}
+h1 {
+  font-weight: bold;
+}
+.features {
+  padding: 20px;
+}
+.feature {
+  border-style: none;
+  max-width: 415px;
+  max-height: 240px;
+  text-align: center;
+}
+.feature .content {
+  height: 140px;
+  align-items: center;
+}
+.feature a {
+  color: #FF6315;
+}
+.feature svg {
+  color: #FF6315;
+}
+.doc a {
+  color: #FF6315;
+}
+.doc h3 {
+  font-style: italic;
+}
