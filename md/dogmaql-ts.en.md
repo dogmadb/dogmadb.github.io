@@ -1,4 +1,4 @@
-# Time series
+# DogmaQL/TS (time series)
 
 *Reading time: 15min*
 

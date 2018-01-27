@@ -10,6 +10,7 @@ Throughout 2018, a **Python** version is going to be available.
 
 Features:
 
+- **100% code coverage**.
 - **DogmaQL/KV** support.
 - **DogmaQL/TS** support.
   Although **Redis** is not a time-series database, the *driver* supports this spec.

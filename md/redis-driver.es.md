@@ -10,6 +10,7 @@ A lo largo de 2018, se encontrará disponible también para **Python**.
 
 Características:
 
+- ***100% code coverage***.
 - Soporta **DogmaQL/KV**.
 - Soporta **DogmaQL/TS**.
   Aunque **Redis** no es una base de datos de series temporales, el *driver* soporta este lenguaje.

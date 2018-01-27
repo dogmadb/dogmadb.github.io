@@ -1,4 +1,4 @@
-# Messaging system
+# DogmaQL/Q (queue)
 
 *Reading time: 5min*
 

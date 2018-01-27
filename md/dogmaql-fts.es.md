@@ -1,4 +1,4 @@
-# Búsqueda de texto
+# DogmaQL/FTS (full-text search)
 
 *Tiempo de lectura: 10min*
 

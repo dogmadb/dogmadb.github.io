@@ -347,6 +347,13 @@ To identify quick and easily the queries, that are resolved with table scans, **
 So well, any non-PK field must be indicated into an `if` clause.
 Remember, if the queries with `where` clauses are abundant, analyze if other type of database to use.
 
+## Built-in functions
+
+In the `if` clauses, we can use the following built-in functions:
+
+- `exists(fieldName) : bool`, for checking whether a field exists.
+- `len(fieldName) : num`, for getting the length/size of a text or list.
+
 ## Drivers
 
 A **driver** is a software component to interact with databases, in our case, using **DogmaQL**.

@@ -352,6 +352,13 @@ Así pues, cualquier campo que no forme parte de la clave principal tiene que se
 
 Recuerde, si abundan las consultas sin `where`, analice concienzudamente si usar una base de datos clave-valor o mejor otro tipo.
 
+## Funciones predefinidas (built-in functions)
+
+En las cláusulas `if`, se puede usar las siguientes funciones predefinidas:
+
+- `exists(fieldName) : bool`, para comprobar si un campo existe.
+- `len(fieldName) : num`, para obtener el tamaño de un texto o lista.
+
 ## Drivers
 
 Un **driver** es un componente de software que permite interactuar con bases de datos, en nuestro caso, mediante **DogmaQL**.
