@@ -37,8 +37,6 @@ Los siguientes espacios de nombres tienen objetivos específicos:
   Su acceso se describe mediante la especificación **DogmaQL/TS**.
 - `fts`, contiene tablas de búsqueda.
   Su acceso se describe mediante la especificación **DogmaQL/FTS**,
-- `q`, contiene colas del sistema de mensajería.
-  Su acceso se describe mediante la especificación **DogmaQL/Q**.
 
 Las tablas de sistema actuales son las siguientes:
 

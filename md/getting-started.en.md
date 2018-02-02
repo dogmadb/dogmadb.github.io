@@ -36,8 +36,6 @@ The following name spaces have specific aims:
   Its access is described by the **DogmaQL/TS** spec.
 - `fts` for containing the search tables.
   Its access is described by the **DogmaQL/FTS** spec.
-- `q` for containing the messaging system.
-  Its access is described by the **DogmaQL/Q** spec.
 
 The current system tables are the following:
 

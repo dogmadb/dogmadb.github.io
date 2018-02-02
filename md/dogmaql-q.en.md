@@ -29,12 +29,11 @@ These are the point-to-point model and the pub/sub model.
 Under the **point-to-point model**, the emitters send the messages to the broker, which will transmit to only one receiver.
 Whereas when the **pub/sub model** used, the broker transmits the message to all the receivers.
 
-A **channel** or **topic** is a container to publish messages.
+A **channel**, **topic** or **queue** is a container to publish messages.
 It's where the emitters publish their messages and from where the receivers read it.
 The broker is the responsible component of administrating them.
 Once a message has been transmitted to the receiver(s), this is removed automatically by the broker.
 
-In **DogmaQL**, every table in the `q` name space is a channel.
 Not needed be created.
 When a client is subscribed to the channel or when a message is published, the broker creates it.
 And it is removed when no subscriber exists and no message is published pending to transmit.
@@ -46,7 +45,7 @@ In **DogmaQL/Q**, the `insert` statement is used for publishing one or multiple 
 Example:
 
 ```
-insert into q.concerts(
+insert in queue concerts(
   {
     artist = "Simple Minds"
     city = "Valencia"
@@ -60,6 +59,7 @@ insert into q.concerts(
 )
 ```
 
+Have to indicate the `queue` keyword after `in`/`into`.
 The channel or queue is `concerts`.
 The messages to publish are the given data objects.
 
