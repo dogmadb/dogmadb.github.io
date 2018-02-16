@@ -2,6 +2,8 @@
 
 *Reading time: 15min*
 
+**Language spec: 1.0.0 (Feb 2018)**
+
 **DogmaQL** is a database language based on the [Dogma](http://dogmalng.com) programming language and on the **SQL** database language.
 Its statement set is very reduced: `delete`, `insert`, `select`, `set` and `update`, allowing to perform such data definition as data query.
 It's possible that some specs allow other statements as, for example, `search` in **DogmaQL/FTS**.
@@ -228,7 +230,7 @@ The `update` statement is used for modifying individual fields of an existing ob
 
 ```
 update table
-where primaryKeyValue
+[where primaryKeyValue]
 [if condition]
 set field=value, field=value...
 [return old|new|{old,new}]
@@ -281,7 +283,7 @@ return {old, new}
 Remember the three statements to write data:
 
 - `insert`, for inserting new objects in a table.
-- `update`, for updating fields from existing objects.
+- `update`, for updating fields from **existing** objects.
 - `set`, for replacing existing objects or to create them in otherwise.
 
 ## select statement
@@ -321,19 +323,19 @@ where video == "https://www.youtube.com/watch?v=ljIQo1OHkTI"
 The `set` clause is only run when the statement accesses one object, that is, this has a `where` clause.
 And besides, only a counter field can be indicated.
 
-### Important aspects of the select statement
+## Important aspects of the conditions
 
 The key-value databases are very easy to implement, compared with other types of databases.
 And it so, due to their operations are simple.
 
 It's very important to keep in mind the following:
 
-- When a `where` clause is indicated, we are delimiting the find to a only one object.
+- When a `where` clause is indicated, we are **narrowing** the search to a only one object.
   Which it is set by its primary key.
   And for this reason, their fields are always compared with the `==` operator.
   So well, the find is very very quick.
 
-- When a `where` clause not indicated, we are performing a **table scan**, that is, the engine has to fetch every object stored into the table.
+- When a `where` clause not indicated, we are performing a **table scan**, that is, the engine has to fetch **every** object stored into the table.
   For this reason, this operation shouldn't be run.
   It's more, if this type of operation is frequent, usually the key-value databases are not recommended.
 

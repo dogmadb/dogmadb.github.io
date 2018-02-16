@@ -2,6 +2,8 @@
 
 *Tiempo de lectura: 15min*
 
+**Especificación del lenguaje: 1.0.0 (Feb 2018)**
+
 **DogmaQL** es un lenguaje de bases de datos basado en el lenguaje de programación [Dogma](http://dogmalang.com) y en el lenguaje de bases de datos **SQL**.
 Su conjunto de sentencias es muy reducido: `delete`, `insert`, `select`, `set` y `update`, permitiendo con ellas realizar tanto la definición como la consulta de datos.
 Es posible que algunas especificaciones soporten otras sentencias como, por ejemplo, `search` en **DogmaQL/FTS**.
@@ -224,11 +226,11 @@ return old
 
 ## Sentencia update
 
-La sentencia `update` se utiliza para actualizar campos de un objeto ya existente:
+La sentencia `update` se utiliza para actualizar campos de uno o más objetos ya existentes:
 
 ```
 update tabla
-where valorClave
+[where valorClave]
 [if condición]
 set campo=valor, campo=valor...
 [return old|new|{old,new}]
@@ -282,8 +284,8 @@ Recordemos las tres sentencias de escritura:
 
 - `insert` inserta un **nuevo** objeto.
   No puede existir ninguno con la clave especificada.
-- `update` actualiza campos individuales de un objeto **ya** existente.
-  Si no existe, no hará nada.
+- `update` actualiza campos individuales de objetos **ya** existentes.
+  Si no existen, no hará nada.
 - `set` cambia el objeto almacenado si ya existe o lo crea si no existe.
 
 ## Sentencia select
@@ -323,20 +325,20 @@ where video == "https://www.youtube.com/watch?v=ljIQo1OHkTI"
 La cláusula `set` sólo se ejecuta cuando el acceso se realiza contra un único objeto, el indicado por el valor clave del `where`.
 Y sólo puede hacer referencia a un único campo, el cual debe incrementarse en una única unidad.
 
-### Aspectos importantes de la sentencia select
+## Aspectos importantes de las condiciones
 
 Las bases de datos clave-valor son muy sencillas de implementar, comparado con otros tipos de bases de datos.
 Y son así de simples, por su sencillo funcionamiento.
 
 Es muy importante tener en cuenta los siguientes aspectos:
 
-- Cuando se indica una cláusula `where`, lo que se está haciendo es acotar la búsqueda a un único objeto.
+- Cuando se indica una cláusula `where`, lo que se está haciendo es **acotar** la búsqueda a un único objeto.
   Siempre debe indicar el valor de una clave principal.
   Y por esta razón, sus campos **siempre** se comparan por igualdad (`==`).
-  Lo que conlleva que su acceso sea muy rápido y consuma pocos recursos.
+  Lo que conlleva que su acceso sea muy rápido y consuma muy pocos recursos.
 
 - Cuando no se indica una cláusula `where`, se está haciendo un **escaneo de tabla** (*table scan*).
-  Esto quiere decir que se recorre todos los objetos almacenados en la tabla.
+  Esto quiere decir que se recorre **todos** los objetos almacenados en la tabla.
   Por esta razón, no se recomienda este tipo de consultas.
   Pues podrían consumir muchos recursos.
   Es más, si este tipo de consultas son frecuentes, generalmente se desaconseja la utilización de bases de datos clave-valor.
@@ -344,9 +346,10 @@ Es muy importante tener en cuenta los siguientes aspectos:
 Para identificar rápida y fácilmente las consulas que se resuelven con escaneos de tabla, **DogmaQL** usa la cláusula `where`:
 
 - Si se indica una cláusula `where`, no se realiza escaneo de tabla.
-- Si no se indica cláusula `where`, la consuklta se resolverá con un escaneo de tabla.
+  Se va directamente al objeto, consumiendo muy pocos recursos.
+- Si no se indica cláusula `where`, la consulta se resolverá con un escaneo de tabla.
 
-Así pues, cualquier campo que no forme parte de la clave principal tiene que ser indicado en la cláusula `if`.
+Así pues, cualquier campo que no forme parte de la clave principal tiene que indicarse en la cláusula `if`.
 
 Recuerde, si abundan las consultas sin `where`, analice concienzudamente si usar una base de datos clave-valor o mejor otro tipo.
 

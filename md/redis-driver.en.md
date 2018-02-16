@@ -2,7 +2,7 @@
 
 *Reading time: 10min*
 
-The [Redis](http://redis.io) driver for **DogmaQL** is available in the **NPM** `dogmaql.driver.redis` package.
+The [Redis](http://redis.io) driver for **DogmaQL** is available in the **NPM** [`dogmaql.driver.redis`](https://www.npmjs.com/package/dogmaql.driver.redis) package.
 Recommended a local installation for every project.
 
 This has been implemented in [Dogma](http://dogmalang.com) and compiled to **JavaScript**.
