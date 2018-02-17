@@ -323,7 +323,7 @@ where video == "https://www.youtube.com/watch?v=ljIQo1OHkTI"
 The `set` clause is only run when the statement accesses one object, that is, this has a `where` clause.
 And besides, only a counter field can be indicated.
 
-## Important aspects of the conditions
+## Important aspects about the conditions
 
 The key-value databases are very easy to implement, compared with other types of databases.
 And it so, due to their operations are simple.
